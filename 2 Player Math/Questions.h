@@ -14,6 +14,10 @@
 @property (nonatomic, assign) int firstNumber;
 @property (nonatomic, assign) int secondNumber;
 @property (nonatomic, strong) NSString *questionEquation;
+@property (nonatomic, assign) int operatorChoice;
+@property (nonatomic, strong) NSString *questionOperator;
+
+
 
 -(void)assignNumbers;
 

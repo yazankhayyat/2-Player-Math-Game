@@ -32,6 +32,7 @@
 
 -(void)reloadGame {
     [self addPlayers];
+    self.view.backgroundColor = [UIColor colorWithRed:0.1 green:1 blue:0.1 alpha:0.5];
     self.question = [[Questions alloc]init];
     [self.question assignNumbers];
     self.displayQuestionLabel.text = self.question.questionEquation;
@@ -114,6 +115,7 @@
             [self displayLifeLabel:curPlayer];
             [self displayScoreLabel:curPlayer];
             self.currentPlayerIndex = (self.currentPlayerIndex + 1) % 2;
+            [self switchColorTo:curPlayer];
             [self displayPlayerNumberLabel:curPlayer];
             [self resetNumberLabel];
             [self giveNextQuestion];
@@ -310,8 +312,17 @@
     self.playerNumberLabel.text = [NSString stringWithFormat:@"Player %@", (newIndex)];
 }
 
-
-
+-(void)switchColorTo:(Players *)player {
+    Players *player1 = self.playersArray[0];
+    Players *player2 = self.playersArray[1];
+    
+    if (player == player2) {
+        self.view.backgroundColor = [UIColor colorWithRed:0.2 green:1 blue:0.1 alpha:0.5];
+        
+    }else if (player == player1) {
+        self.view.backgroundColor = [UIColor colorWithRed:0.6 green:0 blue:0.6 alpha:1];
+    }
+}
 
 
 
